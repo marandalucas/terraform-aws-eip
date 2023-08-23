@@ -9,7 +9,8 @@ EIP may require IGW to exist prior to association
 ## Example Usage
 
 - Single EIP associated with an instance
-    ```json
+  
+    ```tf
     resource "aws_eip" "lb" {
         instance = aws_instance.web.id
         domain   = "vpc"
@@ -17,7 +18,8 @@ EIP may require IGW to exist prior to association
     ```
 
 - Multiple EIPs associated with a single network interface.
-    ```json
+
+    ```tf
         resource "aws_network_interface" "multi-ip" {
             subnet_id   = aws_subnet.main.id
             private_ips = ["10.0.0.10", "10.0.0.11"]
@@ -37,7 +39,8 @@ EIP may require IGW to exist prior to association
     ```
 
 - Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
-    ```json
+  
+    ```tf
         resource "aws_vpc" "default" {
             cidr_block           = "10.0.0.0/16"
             enable_dns_hostnames = true
